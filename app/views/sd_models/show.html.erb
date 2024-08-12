@@ -1,0 +1,30 @@
+<%= notice ? content_tag(:p, notice, class: "alert alert-success") : "" %>
+
+<div id="<%= dom_id @sd_model %>" class="container my-4 py-4 card">
+  <!-- Header and Description -->
+  <div class=" mb-4">
+    <h1 class="display-4 text-primary mb-3 text-center border-bottom">
+      <strong>
+        -<%= @sd_model.name %>-
+      </strong></h1>
+    <p class="lead" style="padding: 20px; border-radius: 8px;">
+      <%= @sd_model.description.html_safe %>
+    </p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="d-flex justify-content-between border-top pt-3  mt-2">
+    <%= link_to "Edit this SD model", edit_sd_model_path(@sd_model), class: "btn btn-warning me-2" %>
+    <%= link_to "Back to SD models", sd_models_path, class: "btn btn-secondary me-2" %>
+    <%= button_to "Destroy this SD model", @sd_model, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+
+
+
+</div>
+
+<div class="card mb-4">
+  <div class="d-flex flex-wrap justify-content-center w-100">
+    <%= render partial: 'cards/model_prompt_card', collection: @sd_model.sd_model_prompts, as: :mod_prompt %>
+  </div>
+</div>

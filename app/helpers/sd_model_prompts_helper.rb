@@ -1,0 +1,2 @@
+module SdModelPromptsHelper
+end

@@ -1,0 +1,25 @@
+<div class="m-2 card shadow-sm m-1" style="width: 340px; height: 220px; border-radius: 5px; border: 2px solid">
+  <div class="row g-0 h-100">
+    <div class="col-5 border-white border-end"
+         style="background-image: url('<%= prompt.sample_image_url %>');
+           background-size: cover;
+           background-position: center;
+           height: 100%;
+           border-radius: 5px 0 0 5px;">
+    </div>
+    <div class="col-7 border-white">
+      <div class="card-body h-100 d-flex flex-column justify-content-between">
+        <h3 class="card-title text-primary text-center border-bottom pb-1 mt-n2 mb-1">
+          <%= link_to prompt.name, sd_prompt_path(prompt) %>
+        </h3>
+        <p class="card-text text-secondary fst-italic flex-grow-1">
+          <%= truncate(prompt.pos.html_safe, length: 105) %>
+        </p>
+        <div class="d-flex justify-content-center mt-auto mb-n2 border-top mt-1 pt-2">
+          <%= link_to "Edit", edit_sd_prompt_path(prompt), class: "btn btn-warning btn-sm me-2" %>
+          <%= link_to "View", sd_prompt_path(prompt), class: "btn btn-primary btn-sm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

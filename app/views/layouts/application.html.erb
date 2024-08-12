@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SdBenchmarker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_include_tag "color-modes" %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
+
+    <%= stylesheet_link_tag "core", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "overrides", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+
+    <div class="main-wrapper">
+      <%= render 'shared/sidebar' %>
+      <div class="page-wrapper">
+        <%= render 'shared/navbar' %>
+        <div class="page-content">
+          <%= yield %>
+        </div>
+        <%= render 'shared/footer' %>
+      </div>
+
+    </div>
+
+    <%= javascript_include_tag "feather" %>
+    <%= javascript_include_tag "core" %>
+  <script>
+    feather.replace();
+  </script>
+  </body>
+</html>
+
+
+

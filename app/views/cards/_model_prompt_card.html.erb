@@ -1,0 +1,11 @@
+<% img_url =
+     if mod_prompt.img_url.blank?
+       image_url("not_found")
+     else
+       mod_prompt.img_url
+     end
+%>
+<%= link_to sd_model_prompt_path(mod_prompt) do %>
+  <img class="p-2" src="<%= img_url %>" style="max-width:300px;max-height:300px;">
+<% end %>
+

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sd_model: one
+  sd_prompt: one
+  sd_uuid: MyString
+  img_url: MyString
+
+two:
+  sd_model: two
+  sd_prompt: two
+  sd_uuid: MyString
+  img_url: MyString

@@ -1,0 +1,42 @@
+<p class="text-success"><%= notice %></p>
+
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h1 class="display-4 mb-3 text-center text-primary"><%= @sd_prompt.name %></h1>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="fw-bold mb-2"><strong>Pos:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.pos %></p>
+          <p class="fw-bold mb-2"><strong>Neg:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.neg %></p>
+          <p class="fw-bold mb-2"><strong>Sample Image URL:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.sample_image_url || "None Provided" %></p>
+          <p class="fw-bold mb-2"><strong>Width:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.width %></p>
+          <p class="fw-bold mb-2"><strong>Height:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.height %></p>
+          <p class="fw-bold mb-2"><strong>Seed:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.seed %></p>
+          <p class="fw-bold mb-2"><strong>Cfg:</strong></p>
+          <p class="card p-2 mb-2"><%= @sd_prompt.cfg %></p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="<%= @sd_prompt.sample_image_url %>" class="img-fluid rounded" alt="Sample Image">
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-4">
+        <%= link_to "Edit this SD prompt", edit_sd_prompt_path(@sd_prompt), class: "btn btn-warning" %>
+        <%= link_to "Back to SD prompts", sd_prompts_path, class: "btn btn-secondary" %>
+        <%= button_to "Destroy this SD prompt", @sd_prompt, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row card mb-4">
+    <div class="d-flex flex-wrap justify-content-center w-100">
+      <%= render partial: 'cards/model_prompt_card', collection: @sd_prompt.sd_model_prompts, as: :mod_prompt %>
+    </div>
+  </div>
+
+</div>

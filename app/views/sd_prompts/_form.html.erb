@@ -1,0 +1,56 @@
+<%= form_with(model: sd_prompt, class: "needs-validation") do |form| %>
+  <% if sd_prompt.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading"><%= pluralize(sd_prompt.errors.count, "error") %> prohibited this SD Prompt from being saved:</h4>
+      <ul>
+        <% sd_prompt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_area :name, class: "form-control", rows: 2, value: sd_prompt.name %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :pos, class: "form-label" %>
+    <%= form.text_area :pos, class: "form-control", rows: 3, value: sd_prompt.pos %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :neg, class: "form-label" %>
+    <%= form.text_area :neg, class: "form-control", rows: 3, value: sd_prompt.neg || "(worst quality), (low quality), (normal quality), lowres, watermark,  title,  (jpeg-artifacts)" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :sample_image_url, class: "form-label" %>
+    <%= form.text_area :sample_image_url, class: "form-control", rows: 3, value: sd_prompt.sample_image_url %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :width, class: "form-label" %>
+    <%= form.number_field :width, class: "form-control", value: sd_prompt.width || 576 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :height, class: "form-label" %>
+    <%= form.number_field :height, class: "form-control", value: sd_prompt.height || 768 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :seed, class: "form-label" %>
+    <%= form.number_field :seed, class: "form-control", value: sd_prompt.seed || 69420  %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cfg, class: "form-label" %>
+    <%= form.number_field :cfg, class: "form-control", value: sd_prompt.cfg || 7 %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<%= form_with(model: sd_model, local: true) do |form| %>
+  <% if sd_model.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(sd_model.errors.count, "error") %> prohibited this SD model from being saved:</h4>
+      <ul>
+        <% sd_model.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 4 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :ckpt_path, class: "form-label" %>
+    <%= form.text_field :ckpt_path, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :sample_image_url, class: "form-label" %>
+    <%= form.text_field :sample_image_url, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :civitai_link, class: "form-label" %>
+    <%= form.text_field :civitai_link, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

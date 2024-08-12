@@ -1,0 +1,36 @@
+<%= form_with(model: sd_model_prompt) do |form| %>
+  <% if sd_model_prompt.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(sd_model_prompt.errors.count, "error") %> prohibited this SD model prompt from being saved:</h2>
+      <ul>
+        <% sd_model_prompt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group mb-3">
+    <%= form.label :sd_model_id, class: "form-label" %>
+    <%= form.collection_select :sd_model_id, SdModel.all, :id, :name, { prompt: "Select SD Model" }, { class: "form-select" } %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :sd_prompt_id, class: "form-label" %>
+    <%= form.collection_select :sd_prompt_id, SdPrompt.all, :id, :name, { prompt: "Select SD Prompt" }, { class: "form-select" } %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :sd_uuid, class: "form-label" %>
+    <%= form.text_field :sd_uuid, value: @sd_model_prompt.sd_uuid %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :img_url, class: "form-label" %>
+    <%= form.text_field :img_url, value: @sd_model_prompt.img_url %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.submit "Save Changes", class: "btn btn-primary" %>
+  </div>
+<% end %>

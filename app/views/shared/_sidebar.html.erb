@@ -1,0 +1,73 @@
+<nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="#" class="sidebar-brand">
+          SD<span>Tools</span>
+        </a>
+        <div class="sidebar-toggler">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="sidebar-body">
+        <ul class="nav" id="sidebarNav">
+          <li class="nav-item nav-category">Main</li>
+
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <i class="link-icon" data-feather="list"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category">SD Models/Checkpoints</li>
+
+          <li class="nav-item">
+            <a href="<%= sd_models_path %>" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Model Index</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<%= new_sd_model_path %>" class="nav-link">
+              <i class="link-icon" data-feather="plus"></i>
+              <span class="link-title">New Model</span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category">Prompts</li>
+
+          <li class="nav-item">
+            <a href="<%= sd_prompts_path %>" class="nav-link">
+              <i class="link-icon" data-feather="align-left"></i>
+              <span class="link-title">Prompt Index</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<%= new_sd_prompt_path %>" class="nav-link">
+              <i class="link-icon" data-feather="plus"></i>
+              <span class="link-title">New Prompt</span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category">Images</li>
+
+          <li class="nav-item">
+            <a href="<%= sd_model_prompts_path %>" class="nav-link">
+              <i class="link-icon" data-feather="image"></i>
+              <span class="link-title">Benchmark Images</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<%= sd_prompts_path %>" class="nav-link">
+              <i class="link-icon" data-feather="image"></i>
+              <span class="link-title">Model Mergers</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
