@@ -68,6 +68,32 @@
             </a>
           </li>
 
+          <li class="nav-item nav-category">Importers</li>
+
+          <li class="nav-item">
+            <a href="<%= importer_import_models_path %>" class="nav-link">
+              <i class="link-icon" data-feather="image"></i>
+              <span class="link-title">Import Checkpoints</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<%=  importer_import_metadata_path %>" class="nav-link">
+              <i class="link-icon" data-feather="image"></i>
+              <span class="link-title">Import Metadata</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <%= form_with url: fix_stuck_model_prompts_path, method: :post, class: 'nav-link', html: { class: 'd-inline' } do %>
+              <button type="submit" class="btn btn-link">
+                <i class="link-icon" data-feather="image"></i>
+                <span class="link-title">Fix Ungenerated Prompts</span>
+              </button>
+            <% end %>
+          </li>
+
+
         </ul>
       </div>
     </nav>

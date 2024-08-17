@@ -1,11 +1,8 @@
-<% img_url =
-     if mod_prompt.img_url.blank?
-       image_url("not_found")
-     else
-       mod_prompt.img_url
-     end
-%>
+
 <%= link_to sd_model_prompt_path(mod_prompt) do %>
-  <img class="p-2" src="<%= img_url %>" style="max-width:300px;max-height:300px;">
+  <div class="image-container">
+    <img class="p-2" src="<%= image_url(mod_prompt.thumbnail) %>" style="min-height:300px;min-width:300px;max-width:510px;max-height:510px;">
+    <div class="label"><%= mod_prompt.sd_model.name %></div>
+  </div>
 <% end %>
 

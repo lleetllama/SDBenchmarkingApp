@@ -3,11 +3,20 @@ class SdModelPromptsController < ApplicationController
 
   # GET /sd_model_prompts or /sd_model_prompts.json
   def index
-    @sd_model_prompts = SdModelPrompt.all
+    @sd_model_prompts = SdModelPrompt.order(sd_prompt_id: :desc).all
   end
 
   # GET /sd_model_prompts/1 or /sd_model_prompts/1.json
   def show
+
+  end
+
+  def regen
+    @sd_model_prompt = SdModelPrompt.find(params[:id])
+    @sd_model_prompt.img_url = nil
+    @sd_model_prompt.sd_uuid = nil
+    @sd_model_prompt.save
+    @sd_model_prompt.generate_image
   end
 
   # GET /sd_model_prompts/new

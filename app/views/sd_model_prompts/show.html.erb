@@ -8,11 +8,11 @@
       <div class="col">
         <p class="card-text">
           <strong>SD Model:</strong>
-          <%= @sd_model_prompt.sd_model.name %> <!-- Assuming you have an association to fetch the name -->
+          <%= link_to @sd_model_prompt.sd_model.name, sd_model_path(@sd_model_prompt.sd_model) %> <!-- Assuming you have an association to fetch the name -->
         </p>
         <p class="card-text">
           <strong>SD Prompt:</strong>
-          <%= @sd_model_prompt.sd_prompt.name %> <!-- Assuming you have an association to fetch the name -->
+          <%= link_to @sd_model_prompt.sd_prompt.name, sd_prompt_path(@sd_model_prompt.sd_prompt) %> <!-- Assuming you have an association to fetch the name -->
         </p>
         <p class="card-text">
           <strong>SD UUID:</strong>
@@ -25,13 +25,14 @@
       </div>
 
       <div class="col">
-        <img src="<%= @sd_model_prompt.img_url.blank? ? image_url("not_found") : @sd_model_prompt.img_url %>">
+        <img class="py-5 rounded mx-auto d-block" src="<%= image_url(@sd_model_prompt.img_url) %>">
       </div>
 
       <div class="d-flex justify-content-between mt-3">
         <%= link_to "Edit this SD model prompt", edit_sd_model_prompt_path(@sd_model_prompt), class: "btn btn-warning btn-sm" %>
         <%= link_to "Back to SD model prompts", sd_model_prompts_path, class: "btn btn-secondary btn-sm" %>
         <%= button_to "Destroy this SD model prompt", @sd_model_prompt, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+        <%= button_to "Regenerate", regenerate_image_path(@sd_model_prompt), class: "btn btn-warning btn-sm" %>
       </div>
 
     </div>

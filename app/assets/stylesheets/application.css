@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.label {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 3px; /* Rounded corners */
+    font-size: 10px; /* Font size */
+}

@@ -8,6 +8,7 @@ class SdPromptsController < ApplicationController
 
   # GET /sd_prompts/1 or /sd_prompts/1.json
   def show
+    sd_model_prompts = @sd_prompt.sd_model_prompts
   end
 
   # GET /sd_prompts/new

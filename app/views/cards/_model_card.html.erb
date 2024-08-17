@@ -1,7 +1,16 @@
+<% if model.sample_image_url.present? && Rails.application.assets.find_asset(model.sample_image_url) %>
+  <% image_url = image_path(model.sample_image_url) %>
+<% elsif model.sample_image_url.present? %>
+  <% image_url = model.sample_image_url %>
+<% else %>
+  <% image_url = model.sd_model_prompts.sample.img_url %>
+<% end %>
+
+
 <div class="card shadow-sm m-1" style="width: 340px; height: 220px; border-radius: 5px; border: 2px solid">
   <div class="row g-0 h-100">
     <div class="col-5 border-white border-end"
-         style="background-image: url('<%= model.sample_image_url %>');
+         style="background-image: url('<%= image_url %>');
            background-size: cover;
            background-position: center;
            height: 100%;
@@ -9,9 +18,9 @@
     </div>
     <div class="col-7 border-white">
       <div class="card-body h-100 d-flex flex-column justify-content-between">
-        <h3 class="card-title text-primary text-center border-bottom pb-1 mt-n2 mb-1"><%= model.name %></h3>
+        <h3 class="card-title text-primary text-center border-bottom pb-1 mt-n2 mb-1"><%= truncate(model.name&.html_safe, length: 28) %></h3>
         <p class="card-text text-secondary fst-italic flex-grow-1">
-          <%= truncate(model.description.html_safe, length: 105) %>
+          <%= truncate(model.description&.html_safe, length: 80) %>
         </p>
         <div class="d-flex justify-content-center mt-auto mb-n2 border-top mt-1 pt-2">
           <% if model.ckpt_path.present? %>
